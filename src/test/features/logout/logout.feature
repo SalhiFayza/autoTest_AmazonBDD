@@ -7,6 +7,6 @@ Feature: Logout
     Given je me déconnecter de mon espace Amazon avec succés
     When je faire un mouse hoover sur le text "Bonjour TEST"
     And je clique Déconnexion
-    Then se déconnécter et se rediriger vers la page login
+    Then se rediriger vers la page login
     
 

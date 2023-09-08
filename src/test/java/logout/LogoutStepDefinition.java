@@ -1,5 +1,6 @@
 package logout;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -32,18 +33,27 @@ public class LogoutStepDefinition {
 
 	@When("^je faire un mouse hoover sur le text \"([^\"]*)\"$")
 	public void je_faire_un_mouse_hoover_sur_le_text(String arg1) throws Throwable {
+		
 		logoutPageObj.identifierVous();
 	}
 
 	@When("^je clique Déconnexion$")
 	public void je_clique_Déconnexion() throws Throwable {
+		
 		logoutPageObj.logoutBtn();
 		
 		}
 
-	@Then("^se déconnécter et se rediriger vers la page login$")
+	@Then("^se rediriger vers la page login$")
 	public void se_déconnécter_et_se_rediriger_vers_la_page_login() throws Throwable {
-	  
+		
+	    String msgAtendu = "S'identifier";
+	    
+		String msgObtenu = logoutPageObj.loginPage();
+	    
+		Assert.assertEquals(msgObtenu,msgAtendu );
+				
+		System.out.println("Automated test completed.");
 	}
 
 
