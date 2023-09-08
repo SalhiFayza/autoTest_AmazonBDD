@@ -4,7 +4,7 @@ Feature: authentification
    En tant qu'un utilisateur je veux m'identifier a l'application Amazon
 
     @tag1
-    Scenario: authentification avec des coordonnees valides
+    Scenario: authentification avec des coordionnees valides
     Given je me connecte sur l'application Amazon
     And j'accepte les cookies
     When je clique sur identifiez vous
