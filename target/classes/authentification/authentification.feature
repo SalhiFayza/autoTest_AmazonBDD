@@ -34,8 +34,37 @@ Feature: authentification
         And je clique sur le bouton Continuer
         And je saisi le mot de passe "2015.codeamazon@"
         And je clique sur le bouton S'identifier
-        Then un message d'erreur s'affiche "un probleme est survenu votre mot de passe est incorrecte"
+        Then un message d'erreur s'affiche "Un probleme est survenu votre mot de passe est incorrecte"
+        
+        #*****(-_-)*****
 
+        Scenario Outline: L'authentification à l'aide du champ adresse mail est vide
+        Given je me connecte sur l'application Amazon
+        And j'accepte les cookies
+        When je clique sur identifiez vous
+        And je vide le contenu du champ adresse email
+        And je clique sur le bouton Continuer
+        Then un message d'erreur s'affiche "Un problème est survenu Saisissez votre adresse e-mail ou numéro de téléphone portable"
 
+        #*****(-_-)*****
 
+        Scenario Outline: L'authentification à l'aide du champ mot de passe est vide 
+        Given je me connecte sur l'application Amazon
+        And j'accepte les cookies
+        When je clique sur identifiez vous
+        And je saisi adresse mail de connexion valide "qatest207@gmail.com"
+        And je clique sur le bouton Continuer
+        And je vide le contenu du champ le mot de passe
+        And je clique sur le bouton S'identifier
+        Then Un message d'erreur est affiché  "Entrez votre mot de passe !"
+        
+        #*****(-_-)*****
+
+        Scenario Outline: authentification avec un compte Amazon est inexistant 
+        Given je me connecte sur l'application Amazon
+        And j'accepte les cookies
+        When je clique sur identifiez vous
+        And je saisi adresse mail de connexion valide "inexistant@gmail.com"
+        And je clique sur le bouton Continuer
+        Then Un message d'erreur s'affiche "Impossible de trouver un compte correspondant à cette adresse e-mail 
 
