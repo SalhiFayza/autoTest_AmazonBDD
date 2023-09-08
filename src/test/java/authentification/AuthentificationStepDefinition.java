@@ -12,7 +12,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class AuthentificationStepDefinition {
-private WebDriver driver;
+    private WebDriver driver;
 	
 	private AuthentificationPageObject authPageObj = new AuthentificationPageObject();
 	 
