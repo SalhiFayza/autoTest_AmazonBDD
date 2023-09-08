@@ -12,7 +12,7 @@ Feature: authentification
     And je clique sur le bouton Continuer
     And je saisi le mot de passe "2015.codeamazon"
     And je clique sur le bouton S'identifier
-    Then je me redirige vers la page d'accueil de client et "Bonjour Salhi"
+    Then je me redirige vers la page d'accueil de client et "Bonjour TEST"
 
         #*****(-_-)*****
 
