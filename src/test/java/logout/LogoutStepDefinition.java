@@ -22,13 +22,19 @@ public class LogoutStepDefinition {
 	private WaitMethods waitMethods = new WaitMethods();
 	
 	public  LogoutStepDefinition() {
+		
 		super();
+		
 		driver = Setup.driver;
+		
 		PageFactory.initElements(driver, LogoutPageObject.class);
+	
 	}
+	
 	@Given("^je me déconnecter de mon espace Amazon avec succés$")
 	public void je_me_déconnecter_de_mon_espace_Amazon_avec_succés() throws Throwable {
 	   
+		driver.get("https://www.amazon.fr/");
 	}
 
 	@When("^je faire un mouse hoover sur le text \"([^\"]*)\"$")
@@ -47,11 +53,11 @@ public class LogoutStepDefinition {
 	@Then("^se rediriger vers la page login$")
 	public void se_déconnécter_et_se_rediriger_vers_la_page_login() throws Throwable {
 		
-	    String msgAtendu = "S'identifier";
+	    String titleAtendu = "S'identifier";
 	    
-		String msgObtenu = logoutPageObj.loginPage();
+		String titleObtenu = logoutPageObj.loginPage();
 	    
-		Assert.assertEquals(msgObtenu,msgAtendu );
+		Assert.assertEquals(titleObtenu, titleAtendu);
 				
 		System.out.println("Automated test completed.");
 	}
