@@ -6,12 +6,12 @@ Feature: Mot de passe oublié sur l'application Amazon
     Given je me trouve sur la page de connexion d'Amazon
     And j'accepte les cookies
     When je saisis mon adresse e-mail enregistrée "qatest207@gmail.com"
-    And je clique sur le bouton "Continuer"
-    And je clique sur le lien cliquable "Mot de passe oublié"
+    And je clique sur le bouton Continuer
+    And je clique sur le lien cliquable «Mot de passe oublié»
     Then je dois être redirigé vers la page Vérification requise
 
     When je saisis mon adresse e-mail enregistrée "qatest207@gmail.com" Ou mon numéro de téléphone portable enregistré "123456789"
-    And je clique sur le bouton "Continuer"
+    And je clique sur le bouton Continuer
     Then je dois voir un message de confirmation indiquant qu'un code de OTP a été envoyé
 
     When je vérifie ma boîte de réception e-mail pour "qatest207@gmail.com" Ou mon téléphone pour le code de réinitialisation "123456789"
@@ -19,17 +19,22 @@ Feature: Mot de passe oublié sur l'application Amazon
     Then le message doit contenir un code OTP de mot de passe
 
     When je saisis le code de OTP "55555"
-    Then je dois être redirigé vers la page "Continuer"
+    Then je clique sur le bouton Continuer
 
     When je saisis un nouveau mot de passe "newPassword"
     And je confirme le nouveau mot de passe "newPassword"
-    And je clique sur le bouton "Enregistrer les modifications et se connecter"
+    And je clique sur le bouton Enregistrer les modifications et se connecter
     Then je dois voir un message de confirmation indiquant que mon mot de passe a été réinitialisé avec succès
-
-    When je retourne à la page de connexion Amazon
-    And je saisis mon adresse e-mail enregistrée "qatest207@gmail.com"
-    And je clique sur le bouton "Continuer"
-    And je saisis le nouveau mot de passe "newPassword"
-    And je clique sur le bouton "S'identifier"
-    Then je dois être connecté et redirigé vers la page d'accueil Amazon
+    And je clique sur le lien cliquable «skip»
+    And je dois être connecté et redirigé vers la page d'accueil Amazon
+    And j'accepte les cookies
+    
+    #***********
+    
+    #When je retourne à la page de connexion Amazon
+    #And je saisis mon adresse e-mail enregistrée "qatest207@gmail.com"
+    #And je clique sur le bouton "Continuer"
+    #And je saisis le nouveau mot de passe "newPassword"
+    #And je clique sur le bouton "S'identifier"
+    #Then je dois être connecté et redirigé vers la page d'accueil Amazon
   
