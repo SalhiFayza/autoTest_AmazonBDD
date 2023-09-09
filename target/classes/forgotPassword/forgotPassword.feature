@@ -4,7 +4,10 @@ Feature: Mot de passe oublié sur l'application Amazon
 
   Scenario: J'ai oublié mon mot de passe et je veux le réinitialiser
     Given je me trouve sur la page de connexion d'Amazon
-    When je clique sur le lien cliquable "Mot de passe oublié"
+    And j'accepte les cookies
+    When je saisis mon adresse e-mail enregistrée "qatest207@gmail.com"
+    And je clique sur le bouton "Continuer"
+    And je clique sur le lien cliquable "Mot de passe oublié"
     Then je dois être redirigé vers la page Vérification requise
 
     When je saisis mon adresse e-mail enregistrée "qatest207@gmail.com" Ou mon numéro de téléphone portable enregistré "123456789"
