@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 import Utils.CommonMethods;
 import Utils.Setup;
 import Utils.WaitMethods;
-import logout.LogoutPageObject;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -17,7 +16,7 @@ public class LogoutStepDefinition {
 	
 	private LogoutPageObject logoutPageObj = new LogoutPageObject();
 	 
-	private CommonMethods commenMotheds = new CommonMethods();
+	private CommonMethods commonMotheds = new CommonMethods();
 	
 	private WaitMethods waitMethods = new WaitMethods();
 	

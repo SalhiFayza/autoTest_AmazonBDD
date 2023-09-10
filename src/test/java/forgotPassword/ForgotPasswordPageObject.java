@@ -33,7 +33,9 @@ public class ForgotPasswordPageObject {
 	final static String LINK_BTN_SKIP = "cvf-skip-claim-collect-section";
 
 	final static String ACCEPT_COOKIES_2 = "sp-cc-accept";
-
+    
+	final static String SUCCES = "//*[@id=\"cvf-page-content\"]/div/div/div[1]/div/div/div";
+	
 	// ************
 
 	@FindBy(how = How.ID, using = ACCEPT_COOKIES)
@@ -77,7 +79,11 @@ public class ForgotPasswordPageObject {
 
 	@FindBy(how = How.ID, using = ACCEPT_COOKIES_2)
 	public static WebElement acceptCookies2;
+	
 
+	@FindBy(how = How.ID, using = SUCCES)
+	public static WebElement succes;
+	
 	// **************
 
 	public void cliqAcceptCookies() {
@@ -109,6 +115,12 @@ public class ForgotPasswordPageObject {
 	public void emailVerif(String email) {
 
 		emailVerif.sendKeys(email);
+	}
+
+	//*****
+	public String emailVerifObtenu() {
+
+		return emailVerif.getText();
 	}
 
 	public void btnContinueVerif() {
@@ -149,5 +161,11 @@ public class ForgotPasswordPageObject {
 	public void cliqAcceptCookies2() {
 
 		acceptCookies2.click();
+	}
+	
+	public String succes() {
+		
+	return succes.getText();
+	
 	}
 }

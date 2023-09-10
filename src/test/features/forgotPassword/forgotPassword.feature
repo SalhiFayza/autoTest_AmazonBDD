@@ -25,7 +25,7 @@ Feature: Mot de passe oublié sur l'application Amazon
     And je confirme le nouveau mot de passe "newPassword"
     And je clique sur le bouton Enregistrer les modifications et se connecter
     Then je dois voir un message de confirmation indiquant que mon mot de passe a été réinitialisé avec succès
-    And je clique sur le lien cliquable «skip»
+    And je clique sur le lien cliquable «Ignorer»
     And je dois être connecté et redirigé vers la page d'accueil Amazon
     And j'accepte les cookies
     

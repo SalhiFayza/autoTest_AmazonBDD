@@ -5,7 +5,7 @@ Feature: authentification
 
     @tag1
     Scenario: authentification avec des coordionnees valides
-    Given je me connecte sur l'application Amazon
+    Given je me connecte sur l'application Amazon "https://www.amazon.fr/"
     And j'accepte les cookies
     When je clique sur identifiez vous
     And je saisi l'email "qatest207@gmail.com"
