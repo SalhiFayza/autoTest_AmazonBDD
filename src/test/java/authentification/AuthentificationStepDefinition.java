@@ -2,17 +2,14 @@ package authentification;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import Utils.ChromeDriverManager;
 import Utils.CommonMethods;
 import Utils.Setup;
 import Utils.WaitMethods;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import forgotPassword.ForgotPasswordPageObject;
 
 public class AuthentificationStepDefinition {
 
@@ -20,7 +17,7 @@ public class AuthentificationStepDefinition {
 
 	private AuthentificationPageObject authPageObj = new AuthentificationPageObject();
 
-	private CommonMethods commenMotheds = new CommonMethods();
+	private CommonMethods commonMotheds = new CommonMethods();
 
 	private WaitMethods waitMethods = new WaitMethods();
 
