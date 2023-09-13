@@ -28,7 +28,7 @@ public class CommonMethods {
 
 	public void openURLWithConfigFile(String url) throws IOException {
 		prop = new Properties();
-		FileInputStream fis = new FileInputStream("src/test/resources/configs/config.properties");
+		FileInputStream fis = new FileInputStream("src/test/ressources/config/config.properties");
 		prop.load(fis);
 		driver.get(prop.getProperty(url));
 	}

@@ -1,14 +1,13 @@
 package Utils;
 
+import io.cucumber.java.After;
+
+import io.cucumber.java.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 
-import cucumber.api.java.Before;
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-
+import io.cucumber.java.Scenario;
 public class Setup {
 
 	public static WebDriver driver;
@@ -29,16 +28,19 @@ public class Setup {
 	 */
 
 	public void embedScreenshot(Scenario scenario) {
-		if (scenario.isFailed()) {
-			try {
-				scenario.write("current page URL is" + driver.getCurrentUrl());
-				byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-				scenario.embed(screenshot, "image.png");
-			} catch (WebDriverException somePlateformDontSupportScreenshots) {
-				System.err.println(somePlateformDontSupportScreenshots.getMessage());
-			}
+
+		System.out.println("Taking screenshot if the scenario fails");
+
+		if ((scenario.isFailed())) {
+
+		final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+
+		scenario.attach(screenshot, "image/png", scenario.getName());
+
 		}
-		//driver.quit();
-	}
+
+driver.quit();
+
+		}
 
 }

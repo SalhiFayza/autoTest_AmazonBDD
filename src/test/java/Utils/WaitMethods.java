@@ -61,14 +61,5 @@ public class WaitMethods {
 		return wElement;
 	}
 
-	public void waitUntilPageIsReadyWithJS(WebDriver driver) {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(new Predicate<WebDriver>() {
-			public boolean apply(WebDriver driver) {
-				return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
-			}
-		});
 
-	}
-	
 }
