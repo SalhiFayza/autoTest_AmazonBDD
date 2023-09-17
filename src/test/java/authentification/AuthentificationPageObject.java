@@ -1,12 +1,13 @@
-package login_searchProducts_logoutE2E;
+package authentification;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+public class AuthentificationPageObject {
 
-public class E2EPageObject {
-
+// Recuperer les id des elements web(final pour ne pas modifier les id dans le
+// code)
 
 	final static String ACCEPT_COOKIES = "sp-cc-accept";
 
@@ -21,6 +22,9 @@ public class E2EPageObject {
 	final static String BTN_SIGNINSUBMIT = "signInSubmit";
 
 	final static String VERIF_MSG = "nav-link-accountList-nav-line-1";
+
+// Identification des elements web (cherche les elements web avec l'annotation
+// findby
 
 	@FindBy(how = How.ID, using = ACCEPT_COOKIES)
 	public static WebElement acceptCookiesBtn;
@@ -42,10 +46,10 @@ public class E2EPageObject {
 
 	@FindBy(how = How.ID, using = VERIF_MSG)
 	public static WebElement verifMsg;
-	
+
+// creation des methodes
 
 	public void cliqAcceptCookies() {
-
 		acceptCookiesBtn.click();
 	}
 
@@ -70,12 +74,15 @@ public class E2EPageObject {
 	}
 
 	public void signInSubmitBtn() {
+		
 		btnSignInSubmit.click();
-	}
+	} 
 
 	public String verifMsgObtenu() {
-
-		return verifMsg.getText();
+		
+        String verifMsgWelcome = verifMsg.getText();
+        
+		return verifMsgWelcome;
 	}
 
 }
