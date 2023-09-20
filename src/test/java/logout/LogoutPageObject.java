@@ -9,7 +9,7 @@ import org.openqa.selenium.support.How;
 public class LogoutPageObject {
 	private WebDriver driver;
 
-	final static String BTN_IDENTIFIE = "nav-link-accountList-nav-line-1";
+	final static String BTN_IDENTIFIE = "nav-link-accountList";
 
 	final static String BTN_SIGNOUT = "nav-item-signout";
 
@@ -18,7 +18,7 @@ public class LogoutPageObject {
 	// ******
 
 	@FindBy(how = How.ID, using = BTN_IDENTIFIE)
-	public static WebElement identifieVous;
+	public static WebElement identifie;
 
 	@FindBy(how = How.ID, using = BTN_SIGNOUT)
 	public static WebElement signout;
@@ -28,7 +28,7 @@ public class LogoutPageObject {
 	  
 	public void identifieVousBtn() {
 		Actions action = new Actions(driver);
-		action.moveToElement(identifieVous).perform();
+		action.moveToElement(identifie).perform();
 		
 	}
 
