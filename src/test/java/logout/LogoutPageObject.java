@@ -27,8 +27,8 @@ public class LogoutPageObject {
 	public static WebElement verifPageConx;
 	  
 	public void identifieVousBtn() {
-		Actions action = new Actions(driver);
-		action.moveToElement(identifie).perform();
+		//Actions action = new Actions(driver);
+		//action.moveToElement(identifie).perform();
 		
 	}
 
