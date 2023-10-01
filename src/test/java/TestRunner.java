@@ -8,9 +8,12 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+		features = { "src/spec/features" },
 		
-		features = { "src/test/features" },
-				
+		//features = { "src/spec/features" },
+		
+		//features = { "src/spec/features/logout" },
+		
         plugin = { "pretty", "html:target/cucumber-reports.html",
         		
 		"json:target/cucumber-reports.json",

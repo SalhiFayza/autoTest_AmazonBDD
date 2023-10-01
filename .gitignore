@@ -1,3 +1,8 @@
+test-output/
+spark-report 1-Oct-23 13-49-14/
+target/
+*.html
+*.json
+*.jar
 
 
-/src/test/ressources/drivers/
