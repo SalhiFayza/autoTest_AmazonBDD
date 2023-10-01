@@ -23,17 +23,20 @@ public class SearchStepDefinition{
 		PageFactory.initElements(driver, SearchPageObject.class);// Initialize page elements
 	}
 	
-	@When("Cliquer sur la liste déroulante « Toutes les catégories »")
-	public void cliquerSurLaListeDéroulanteToutesLesCatégories() {
+	@When("Cliquer sur la liste déroulante « Toutes nos catégories »")
+	public void cliquerSurLaListeDéroulanteToutesNosCatégories() {
 		
 		searchPageObject.category_Select();   
 	}
 	
-	@When("je sélectionne la catégorie « Applis & Jeux » depuis le menu déroulant")
-	public void jeSélectionneLaCatégorieApplisJeuxDepuisLeMenuDéroulant() {
-	  
+
+
+	@When("je sélectionne la catégorie «Jeux et Jouets» depuis le menu déroulant")
+	public void jeSélectionneLaCatégorieJeuxEtJouetsDepuisLeMenuDéroulant() {
+	 
 		searchPageObject.itemCategory();
 	}
+
 	
 	@When("j'entre {string} dans la barre de recherche")
 	public void jEntreDansLaBarreDeRecherche(String nameProduct) {
@@ -43,16 +46,19 @@ public class SearchStepDefinition{
 	
 	@When("je clique sur le bouton de recherche")
 	public void jeCliqueSurLeBoutonDeRecherche() {
-	  
+		//searchPageObject.enterKeyBoard();
 		searchPageObject.btnSearch();
 	}
 	
 	@Then("Les résultats de recherche devraient s'afficher {string}")
-	public void lesRésultatsDeRechercheDevraientSAfficher(String string) {
+	public void lesRésultatsDeRechercheDevraientSAfficher(String msgAtendu) {
 	    
-	//String nameObtenu =	searchPageObject.verifNameProduct();
+	String nameObtenu =	searchPageObject.verifNameProduct();
 	
-	//Assert.assertEquals(string, nameObtenu );
+	//System.out.println(nameObtenu);
+	//System.out.println(string);
+	
+	Assert.assertEquals( msgAtendu , nameObtenu );
 	
 	//System.out.println("Automated test completed.");
 	

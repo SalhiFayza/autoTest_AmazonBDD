@@ -16,9 +16,10 @@ Feature: RechercheProduit
     Then je me redirige vers la page d'accueil de client et "Bonjour TEST" s'affiche
     
   @searchProductBtnSearch
+  
   Scenario: Recherche d'un produit dans une catégorie spécifique
-  When Cliquer sur la liste déroulante « Toutes les catégories »
-  And je sélectionne la catégorie « Applis & Jeux » depuis le menu déroulant
+  When Cliquer sur la liste déroulante « Toutes nos catégories »
+  And je sélectionne la catégorie «Jeux et Jouets» depuis le menu déroulant
   And j'entre "NBA 2K24 PS4" dans la barre de recherche
   And je clique sur le bouton de recherche
   Then  Les résultats de recherche devraient s'afficher "NBA 2K24 Édition Black Mamba - PS4" 

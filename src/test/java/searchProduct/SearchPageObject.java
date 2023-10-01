@@ -1,5 +1,6 @@
 package searchProduct;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -8,15 +9,14 @@ public class SearchPageObject {
 
 	final static String CATEGORY_SELECT = "searchDropdownBox";
 	
-	final static String OPTION_CATEGORY = "//*[@id=\"searchDropdownBox\"]/option[7]";
+	final static String OPTION_CATEGORY = "//*[@id=\"searchDropdownBox\"]/option[27]";
 	
 	final static String  INPUT_SEARCH = "twotabsearchtextbox";
 	
 	final static String ICON_SEARCH = "nav-search-submit-text";
 	
-	final static String NAME_PRODUCT = "//*[@id=\"CardInstanceBIi9hc4OOULL4qT2fVRoMw\"]/div[1]/div[2]/div[1]/div/div[2]/a/span/span[2]";
+	final static String NAME_PRODUCT = "//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[3]/div/div/div/div/div/div/div[2]/div[1]/h2/a";
 	
-	//
 	
 	@FindBy(how = How.ID, using = CATEGORY_SELECT )
 	public static WebElement categorySelect;
@@ -50,18 +50,23 @@ public class SearchPageObject {
 		
 		inputSearch.sendKeys(inputProduct);
 	}
-	
-	public void btnSearch() {
+
+	public void enterKeyBoard() {
 		// type enter with sendKeys method and pass Keys.ENTER
-		//inputSearch.sendKeys(Keys.ENTER);
+				inputSearch.sendKeys(Keys.ENTER);
+				
+	}
+	// icon Btn
+	public void btnSearch() {
 		
 		iconsearch.click();
 	}
 	
 	
 	public String verifNameProduct() {
-		String nameAtendu =   nameProduct.getText();
-		return nameAtendu;
+		
+		return nameProduct.getText();		
+		
 	}
 	
 	
