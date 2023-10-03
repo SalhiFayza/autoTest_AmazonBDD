@@ -6,12 +6,9 @@ import org.openqa.selenium.support.How;
 
 public class AuthentificationPageObject {
 
-// Recuperer les id des elements web(final pour ne pas modifier les id dans le
-// code)
-
 	final static String ACCEPT_COOKIES = "sp-cc-accept";
 
-	final static String BTN_IDENTIFIE_VOUS = "nav-link-accountList-nav-line-1";
+	final static String BTN_SIGN_IN = "nav-link-accountList-nav-line-1";
 
 	final static String INPUT_EMAIL = "ap_email";
 
@@ -23,14 +20,12 @@ public class AuthentificationPageObject {
 
 	final static String VERIF_MSG = "nav-link-accountList-nav-line-1";
 
-// Identification des elements web (cherche les elements web avec l'annotation
-// findby
 
 	@FindBy(how = How.ID, using = ACCEPT_COOKIES)
 	public static WebElement acceptCookiesBtn;
 
-	@FindBy(how = How.ID, using = BTN_IDENTIFIE_VOUS)
-	public static WebElement btnIdentifieVous;
+	@FindBy(how = How.ID, using = BTN_SIGN_IN)
+	public static WebElement btnSignIn;
 
 	@FindBy(how = How.ID, using = INPUT_EMAIL)
 	public static WebElement inputEmail;
@@ -47,15 +42,14 @@ public class AuthentificationPageObject {
 	@FindBy(how = How.ID, using = VERIF_MSG)
 	public static WebElement verifMsg;
 
-// creation des methodes
 
 	public void cliqAcceptCookies() {
 		acceptCookiesBtn.click();
 	}
 
-	public void identifierVous() {
+	public void signIn() {
 
-		btnIdentifieVous.click();
+		btnSignIn.click();
 	}
 
 	public void inputEmail(String email) {
@@ -80,9 +74,9 @@ public class AuthentificationPageObject {
 
 	public String verifMsgObtenu() {
 		
-        String verifMsgWelcome = verifMsg.getText();
+        String extractedMessage = verifMsg.getText();
         
-		return verifMsgWelcome;
+		return extractedMessage;
 	}
 
 }

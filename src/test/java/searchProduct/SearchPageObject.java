@@ -15,7 +15,7 @@ public class SearchPageObject {
 	
 	final static String ICON_SEARCH = "nav-search-submit-text";
 	
-	final static String NAME_PRODUCT = "//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[3]/div/div/div/div/div[2]/div[1]/h2";
+	final static String NAME_PRODUCT = "//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[3]/div/div/div/div/div/div[2]/div/div/div[1]/h2/a/span";
 	
 	
 	@FindBy(how = How.ID, using = CATEGORY_SELECT )
@@ -56,7 +56,7 @@ public class SearchPageObject {
 				inputSearch.sendKeys(Keys.ENTER);
 				
 	}
-	// icon Btn
+	
 	public void btnSearch() {
 		
 		iconsearch.click();
@@ -65,7 +65,9 @@ public class SearchPageObject {
 	
 	public String verifNameProduct() {
 		
-		return nameProduct.getText();		
+		String expectedMessage = nameProduct.getText();	
+		
+		return 	expectedMessage;
 		
 	}
 	
