@@ -21,27 +21,27 @@ public class LogoutStepDefinition {
 		driver = Setup.driver;
 	
 		PageFactory.initElements(driver, LogoutPageObject.class);
-	}
+    }
 
-    @When("I hover the mouse over the {string} icon")
-    public void iHoverTheMouseOverTheIcon(String string) {
-		logoutPageObject.identifieVousBtn();
-		logoutPageObject.signoutBtn();
 
+
+    @When("I hover the mouse over the icon «Bonjour TEST Comptes et listes»")
+    public void iHoverTheMouseOverTheIconBonjourTESTComptesEtListes() {
+    	logoutPageObject.identifieVousBtn();
+    }
+    @When("I click on  «Déconnexion»")
+    public void iClickOnDéconnexion() {
+    	logoutPageObject.signoutBtn();
     }
     @Then("I should be logged out and redirected to the Amazon login page {string}")
     public void iShouldBeLoggedOutAndRedirectedToTheAmazonLoginPage(String expectedMessage) {
-      
-    	String extractedMessage = logoutPageObject.verifPageConx();
-
-		Assert.assertEquals(expectedMessage, extractedMessage);
-
+		
+		String extractedMessage =	logoutPageObject.verifPageConx();
+		
+		Assert.assertEquals( expectedMessage , extractedMessage );
+		
 		//System.out.println("Automated test completed.");
     }
-
-
-
-
 
 
 
