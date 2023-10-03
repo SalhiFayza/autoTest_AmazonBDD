@@ -16,54 +16,43 @@ public class SearchStepDefinition{
 	
 	public SearchStepDefinition() {
 
-		super();// Call the superclass constructor
+		super();
 
-		driver = Setup.driver; // Initialize the WebDriver instance from the Setup class
-
-		PageFactory.initElements(driver, SearchPageObject.class);// Initialize page elements
+		driver = Setup.driver; 
+		PageFactory.initElements(driver, SearchPageObject.class);
 	}
 	
-	@When("Cliquer sur la liste déroulante « Toutes nos catégories »")
-	public void cliquerSurLaListeDéroulanteToutesNosCatégories() {
-		
+
+	@When("I click on the dropdown list {string}")
+	public void iClickOnTheDropdownList(String string) {
 		searchPageObject.category_Select();   
+
 	}
-	
-
-
-	@When("je sélectionne la catégorie «Jeux et Jouets» depuis le menu déroulant")
-	public void jeSélectionneLaCatégorieJeuxEtJouetsDepuisLeMenuDéroulant() {
-	 
+	@When("I select the category {string} from the dropdown menu")
+	public void iSelectTheCategoryFromTheDropdownMenu(String string) {
 		searchPageObject.itemCategory();
+
+	}
+	@When("I enter {string} in the search bar")
+	public void iEnterInTheSearchBar(String nameProduct) {
+		searchPageObject.inputNameProduct(nameProduct);
+
+	}
+	@When("I click on the search button")
+	public void iClickOnTheSearchButton() {
+		searchPageObject.btnSearch();
+
+	}
+	@Then("the search results should display {string}")
+	public void theSearchResultsShouldDisplay(String expectedMessage) {
+		
+		String extractedMessage =	searchPageObject.verifNameProduct();
+		
+		Assert.assertEquals( expectedMessage , extractedMessage );
+		
+		//System.out.println("Automated test completed.");
 	}
 
-	
-	@When("j'entre {string} dans la barre de recherche")
-	public void jEntreDansLaBarreDeRecherche(String nameProduct) {
-	  
-		searchPageObject.inputNameProduct(nameProduct);
-	}
-	
-	@When("je clique sur le bouton de recherche")
-	public void jeCliqueSurLeBoutonDeRecherche() {
-		//searchPageObject.enterKeyBoard();
-		searchPageObject.btnSearch();
-	}
-	
-	@Then("Les résultats de recherche devraient s'afficher {string}")
-	public void lesRésultatsDeRechercheDevraientSAfficher(String msgAtendu) {
-	    
-	String nameObtenu =	searchPageObject.verifNameProduct();
-	
-	//System.out.println(nameObtenu);
-	//System.out.println(string);
-	
-	Assert.assertEquals( msgAtendu , nameObtenu );
-	
-	//System.out.println("Automated test completed.");
-	
-	
-	}
 
 
 

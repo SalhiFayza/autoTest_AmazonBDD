@@ -1,27 +1,23 @@
 @search
-Feature: RechercheProduit
+Feature: Product Search
   
-  En tant qu'un utilisateur enregistré et connecté ,
-   je veux chercher un produit existant  dans l'application  Amazon- catégorie Applis et Jeux 
-
+  As a registered and logged-in user,
+   I want to search for an existing product in the Amazon application - category Apps and Games.
 
   Background: 
-    Given je me connecte sur l'application
-    And j'accepte les cookies
-    When je clique sur identifiez vous
-    And je saisi l'email  "qatest207@gmail.com"
-    And je clique sur le bouton Continuer
-    And je saisi le mot de passe "2015.codeamazon"
-    And je clique sur le bouton S'identifier
-    Then je me redirige vers la page d'accueil de client et "Bonjour TEST" s'affiche
-    
-  @searchProductBtnSearch
-  
-  Scenario: Recherche d'un produit dans une catégorie spécifique
-  When Cliquer sur la liste déroulante « Toutes nos catégories »
-  And je sélectionne la catégorie «Jeux et Jouets» depuis le menu déroulant
-  And j'entre "NBA 2K24 PS4" dans la barre de recherche
-  And je clique sur le bouton de recherche
-  Then  Les résultats de recherche devraient s'afficher "NBA 2K24 Édition Black Mamba - PS4" 
-  
+    Given I log in to the application
+    And I accept cookies
+    When I click on "Sign in"
+    And I enter the email "qatest207@gmail.com"
+    And I click on the Continue button
+    And I enter the password "2015.codeamazon"
+    And I click on the Sign In button
+    Then I am redirected to the customer's home page, and "Bonjour TEST" is displayed
 
+  @searchProductBtnSearch
+  Scenario: Search for a product in a specific category
+    When I click on the dropdown list "Toutes nos catégories"
+    And I select the category "Jeux et Jouets" from the dropdown menu
+    And I enter "NBA 2K24 PS4" in the search bar
+    And I click on the search button
+    Then the search results should display "NBA 2K24 Édition Black Mamba - PS4"

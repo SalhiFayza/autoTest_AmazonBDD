@@ -9,8 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class AuthentificationStepDefinition  {
-    // Declare instance variables
+public class AuthentificationStepDefinition {
 
 	private WebDriver driver;
 
@@ -18,63 +17,67 @@ public class AuthentificationStepDefinition  {
 
 	public AuthentificationStepDefinition() {
 
-		super();// Call the superclass constructor
-
-		driver = Setup.driver; // Initialize the WebDriver instance from the Setup class
-
-		PageFactory.initElements(driver, AuthentificationPageObject.class);// Initialize page elements
+		super();
+		driver = Setup.driver;
+		PageFactory.initElements(driver, AuthentificationPageObject.class);
 	}
-	
-	// ... Step definitions for Cucumber scenarios ...
-	@Given("je me connecte sur l'application")
-	public void jeMeConnecteSurLApplication() {
-		
+
+	@Given("I log in to the application")
+	public void iLogInToTheApplication() {
+
 		driver.get("https://www.amazon.fr/");
 	}
 
-	@Given("j'accepte les cookies")
-	public void jAccepteLesCookies(){
-		
+	@Given("I accept cookies")
+	public void iAcceptCookies() {
+
 		authPageObj.cliqAcceptCookies();
+
 	}
 
-	@When("je clique sur identifiez vous")
-	public void jeCliqueSurIdentifiezVous() {
-		
-		authPageObj.identifierVous();
+	@When("I click on {string}")
+	public void iClickOn(String string) {
+
+		authPageObj.signIn();
+
 	}
-	
-	@When("je saisi l'email  {string}")
-	public void jeSaisiLEmail(String email) {
-		
+
+	@When("I enter the email {string}")
+	public void iEnterTheEmail(String email) {
+
 		authPageObj.inputEmail(email);
+
 	}
 
-	@When("je clique sur le bouton Continuer")
-	public void jeCliqueSurLeBoutonContinuer() {
-		
+	@When("I click on the Continue button")
+	public void iClickOnTheContinueButton() {
+
 		authPageObj.continueBtn();
+
 	}
 
-	@When("je saisi le mot de passe {string}")
-	public void jeSaisiLeMotDePasse(String password) {
-		
+	@When("I enter the password {string}")
+	public void iEnterThePassword(String password) {
+
 		authPageObj.inputPassword(password);
+
 	}
 
-	@When("je clique sur le bouton S'identifier")
-	public void jeCliqueSurLeBoutonSIdentifier() {
-		
+	@When("I click on the Sign In button")
+	public void iClickOnTheSignInButton() {
+
 		authPageObj.signInSubmitBtn();
+
 	}
 
-	@Then("je me redirige vers la page d'accueil de client et {string} s'affiche")
-	public void jeMeRedirigeVersLaPageDAccueilDeClientEtSAffiche(String msgAtendu) {
-				   
-		String msgObtenu = authPageObj.verifMsgObtenu();
-		   
-		Assert.assertEquals( msgAtendu , msgObtenu );
+	@Then("I am redirected to the customer's home page, and {string} is displayed")
+	public void iAmRedirectedToTheCustomerSHomePageAndIsDisplayed(String expectedMessage) {
 
-		//System.out.println("Automated test completed.");
+		String extractedMessage = authPageObj.verifMsgObtenu();
+
+		Assert.assertEquals(expectedMessage, extractedMessage);
+
+		// System.out.println("Automated test completed.");
 	}
+
 }

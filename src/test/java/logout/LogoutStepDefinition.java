@@ -11,39 +11,38 @@ import io.cucumber.java.en.When;
 public class LogoutStepDefinition {
 
 	WebDriver driver;
+	
     LogoutPageObject  logoutPageObject = new LogoutPageObject();
-
-	 
-
-	public LogoutStepDefinition() {
+    
+    public LogoutStepDefinition() {
 
 		super();
 
 		driver = Setup.driver;
-		
-
+	
 		PageFactory.initElements(driver, LogoutPageObject.class);
 	}
 
-
-	@When("je fais un mouse hoover sur l'icône «Bonjour TEST Comptes et listes»")
-	public void jeFaisUnMouseHooverSurLIcôneBonjourTESTComptesEtListes(){
+    @When("I hover the mouse over the {string} icon")
+    public void iHoverTheMouseOverTheIcon(String string) {
 		logoutPageObject.identifieVousBtn();
-
-	}
-	@When("je clique sur Déconnexion")
-	public void jeCliqueSurDéconnexion() {
-	
 		logoutPageObject.signoutBtn();
-	}
-	@Then("je devrais être déconnecté et redirigé vers la page de connexion Amazon {string}")
-	public void jeDevraisÊtreDéconnectéEtRedirigéVersLaPageDeConnexionAmazon(String msgAtendu) {
-		String msgObtenu = logoutPageObject.verifPageConx();
 
-		Assert.assertEquals(msgAtendu, msgObtenu);
+    }
+    @Then("I should be logged out and redirected to the Amazon login page {string}")
+    public void iShouldBeLoggedOutAndRedirectedToTheAmazonLoginPage(String expectedMessage) {
+      
+    	String extractedMessage = logoutPageObject.verifPageConx();
+
+		Assert.assertEquals(expectedMessage, extractedMessage);
 
 		//System.out.println("Automated test completed.");
-	}
+    }
+
+
+
+
+
 
 
 
