@@ -20,6 +20,6 @@ Feature: Logout from Amazon Account
 
   @logoutAmazon
   Scenario: Successful logout from Amazon account
-    When I hover the mouse over the "Bonjour TEST Comptes et listes" icon
-    And I click on "Déconnexion"
+    When I hover the mouse over the icon «Bonjour TEST Comptes et listes»
+    And I click on  «Déconnexion»
     Then I should be logged out and redirected to the Amazon login page "S'identifier"
