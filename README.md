@@ -11,4 +11,4 @@
 ![18](https://github.com/SalhiFayza/autoTest_AmazonBDD/assets/60444937/0fe3cb66-7623-4784-af33-04655f816f26)
 
 # Getting Source code from GitHub and Run Selenium Tests in Jenkins 📹🤍:
-video on folder video
+Video on folder Video.😜💻
