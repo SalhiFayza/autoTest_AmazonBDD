@@ -6,7 +6,7 @@ Feature: Logout from Amazon Account
   Background: 
     Given I log in to the application
     And I accept cookies
-    When I click on "Sign in"
+    When I click on "identifiez vous"
     And I enter the email "qatest207@gmail.com"
     And I click on the Continue button
     And I enter the password "2015.codeamazon"
