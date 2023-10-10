@@ -1,4 +1,3 @@
-
 import org.junit.runner.RunWith;
 
 import io.cucumber.junit.Cucumber;
@@ -13,7 +12,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 				"json:target/cucumber-reports.json",
 
 				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" },
-
+ 
 		tags = ("@logout"),
 
 		snippets = SnippetType.CAMELCASE,
