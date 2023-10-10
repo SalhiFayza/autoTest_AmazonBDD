@@ -27,7 +27,7 @@ public class LogoutStepDefinition {
 
     @When("I hover the mouse over the icon «Bonjour TEST Comptes et listes»")
     public void iHoverTheMouseOverTheIconBonjourTESTComptesEtListes() {
-    	logoutPageObject.identifieVousBtn();
+    	logoutPageObject.helloBtn();
     }
     @When("I click on  «Déconnexion»")
     public void iClickOnDéconnexion() {

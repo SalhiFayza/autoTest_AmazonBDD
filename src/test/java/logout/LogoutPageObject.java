@@ -30,7 +30,7 @@ public class LogoutPageObject {
 	public static WebElement verifPageConx;
 	
 		// ***
-	public void identifieVousBtn() {
+	public void helloBtn() {
 		
 		Actions action = new Actions(driver);
 		 action.moveToElement(identifieVous).perform();
