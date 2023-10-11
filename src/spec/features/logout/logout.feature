@@ -16,7 +16,9 @@ Feature: Logout from Amazon Account
     And I select the category "Jeux et Jouets" from the dropdown menu
     And I enter "NBA 2K24 PS4" in the search bar
     And I click on the search button
-    Then the search results should display "NBA 2K24 Édition Black Mamba - PS4"
+    Then the search results should display
+    And I click on my product
+    And the search result should display "NBA 2K24 Édition Black Mamba - PS4"
 
   @logoutAmazon
   Scenario: Successful logout from Amazon account
